@@ -28,13 +28,14 @@ Partial Class Board
         Me.ReviewButton = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ClearButton = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.DartDisplayButton = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.GameButton = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.GameButton = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DartDisplayButton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -105,6 +106,7 @@ Partial Class Board
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.ClearButton)
         Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Controls.Add(Me.ThrowButton)
         Me.TabPage1.Controls.Add(Me.ReviewButton)
@@ -116,6 +118,15 @@ Partial Class Board
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ClearButton
+        '
+        Me.ClearButton.Location = New System.Drawing.Point(159, 351)
+        Me.ClearButton.Name = "ClearButton"
+        Me.ClearButton.Size = New System.Drawing.Size(131, 73)
+        Me.ClearButton.TabIndex = 4
+        Me.ClearButton.Text = "Clear"
+        Me.ClearButton.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
@@ -131,6 +142,36 @@ Partial Class Board
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'DartDisplayButton
+        '
+        Me.DartDisplayButton.Location = New System.Drawing.Point(168, 357)
+        Me.DartDisplayButton.Name = "DartDisplayButton"
+        Me.DartDisplayButton.Size = New System.Drawing.Size(139, 76)
+        Me.DartDisplayButton.TabIndex = 5
+        Me.DartDisplayButton.Text = "Display"
+        Me.DartDisplayButton.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(399, 344)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(119, 21)
+        Me.ComboBox1.TabIndex = 4
+        '
+        'GameButton
+        '
+        Me.GameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GameButton.BackColor = System.Drawing.Color.ForestGreen
+        Me.GameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GameButton.Location = New System.Drawing.Point(6, 357)
+        Me.GameButton.Name = "GameButton"
+        Me.GameButton.Size = New System.Drawing.Size(147, 76)
+        Me.GameButton.TabIndex = 3
+        Me.GameButton.Text = "Game"
+        Me.GameButton.UseVisualStyleBackColor = False
         '
         'PictureBox2
         '
@@ -152,19 +193,6 @@ Partial Class Board
         Me.ListBox1.Size = New System.Drawing.Size(277, 95)
         Me.ListBox1.TabIndex = 1
         '
-        'GameButton
-        '
-        Me.GameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.GameButton.BackColor = System.Drawing.Color.ForestGreen
-        Me.GameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GameButton.Location = New System.Drawing.Point(6, 357)
-        Me.GameButton.Name = "GameButton"
-        Me.GameButton.Size = New System.Drawing.Size(147, 76)
-        Me.GameButton.TabIndex = 3
-        Me.GameButton.Text = "Game"
-        Me.GameButton.UseVisualStyleBackColor = False
-        '
         'Button1
         '
         Me.Button1.Enabled = False
@@ -173,23 +201,6 @@ Partial Class Board
         Me.Button1.Size = New System.Drawing.Size(131, 29)
         Me.Button1.TabIndex = 5
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(399, 344)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(119, 21)
-        Me.ComboBox1.TabIndex = 4
-        '
-        'DartDisplayButton
-        '
-        Me.DartDisplayButton.Location = New System.Drawing.Point(168, 357)
-        Me.DartDisplayButton.Name = "DartDisplayButton"
-        Me.DartDisplayButton.Size = New System.Drawing.Size(139, 76)
-        Me.DartDisplayButton.TabIndex = 5
-        Me.DartDisplayButton.Text = "Display"
-        Me.DartDisplayButton.UseVisualStyleBackColor = True
         '
         'Board
         '
@@ -222,4 +233,5 @@ Partial Class Board
     Friend WithEvents Button1 As Button
     Friend WithEvents DartDisplayButton As Button
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ClearButton As Button
 End Class

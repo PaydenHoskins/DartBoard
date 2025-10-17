@@ -1,10 +1,21 @@
-﻿Imports System.Linq.Expressions
+﻿'Payden Hoskins
+'10/17/25
+'RCET3371
+'Dart Board
+'https://github.com/PaydenHoskins/DartBoard.git
+
+
+Option Explicit On
+Option Strict On
+
+Imports System.Linq.Expressions
 
 Public Class Board
     Public filePath As String = "DartScoreAndRound.txt"
     Public roundNumber As Integer
     Public reviewY As Integer
     Public reviewX As Integer
+
     'Event Handlers
     Private Sub ThrowButton_Click(sender As Object, e As EventArgs) Handles ThrowButton.Click
 
@@ -25,7 +36,7 @@ Public Class Board
                 WriteLine(1, "X Coordinate: " & CStr(X) & " Y Coordinate: " & CStr(Y))
                 WriteLine(1)
                 DrawDart(X, Y)
-                ComboBox1.Items.Add("Round" & CStr(roundNumber) & ":" & " " & "x" & X & "," & "y" & Y)
+                ComboBox1.Items.Add("Round" & CStr(roundNumber) & ":" & " " & "x:" & X & ":" & "y:" & Y)
             Next
             DartCount = 0
             'Prompt to throw again
@@ -81,11 +92,16 @@ Public Class Board
     End Sub
 
     Sub Defaults()
+        PictureBox1.Refresh()
         PictureBox1.BackColor = Color.DarkGray
+        PictureBox2.Refresh()
+        PictureBox2.BackColor = Color.DarkGray
+        ListBox1.Items.Clear()
     End Sub
 
     Private Sub ReviewButton_Click(sender As Object, e As EventArgs) Handles ReviewButton.Click
         Dim currentRecord As String = ""
+        Defaults()
         TabControl1.SelectedTab = TabPage2
         'Read and display the log file to listbox
         ListBox1.Items.Clear()
@@ -99,6 +115,7 @@ Public Class Board
     End Sub
 
     Private Sub GameButton_Click(sender As Object, e As EventArgs) Handles GameButton.Click
+        Defaults()
         FileClose(2)
         TabControl1.SelectedTab = TabPage1
         ListBox1.Items.Clear()
@@ -110,12 +127,18 @@ Public Class Board
         Dim displayX As Integer
         Dim displayY As Integer
         Dim coordnates As String
-        coordnates = ComboBox1.SelectedItem.ToString()
-        coordnates = Replace(coordnates, "Round " & "x" & "y" & ":", "")
         Dim coords() As String
-        coords = Split(coordnates, ", ")
-        displayX = CInt(coords(0))
-        displayX = CInt(coords(1))
-        DrawDart2(displayX, displayY)
+        If ComboBox1.SelectedItem Is Nothing Then
+            MsgBox("Select a dart to display")
+        ElseIf ComboBox1.SelectedItem IsNot Nothing Then
+            coordnates = ComboBox1.SelectedItem.ToString()
+            coords = Split(coordnates, ":")
+            displayX = CInt(coords(2))
+            displayY = CInt(coords(4))
+            DrawDart2(displayX, displayY)
+        End If
+    End Sub
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        Defaults()
     End Sub
 End Class
